@@ -75,7 +75,8 @@ main {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1280px;
+    box-sizing: content-box;
     padding: 0 7vw;
     margin: 0 auto;
     display: flex;
@@ -84,8 +85,6 @@ main {
 }
 
 /* features-section */
-.section {}
-
 .features {
     margin-top: 3.75rem;
 }
@@ -222,15 +221,16 @@ footer .container {
         --font-size-xl: 2.25rem;
     }
 
+    .features {
+        margin-top: 7.5rem;
+    }
+
     .section-description {
         margin-bottom: 4.5rem;
     }
 
     .feature-card-list {
         grid-template-columns: repeat(3, clamp(320px, 23.5vw, 400px));
-        /* grid-auto-flow: dense; */
-        /* grid-template-areas: "supervisor team builder  karma"
-            "supervisor calculator  karma"; */
     }
 
     .feature-card-list-item:has(.supervisor) {
