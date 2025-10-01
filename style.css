@@ -1,0 +1,249 @@
+:root {
+    /* fonts */
+    --font-size-sm: 0.8175rem;
+    --font-size-base: 0.9375rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-family-general: "Poppins",
+        sans-serif;
+    --font-family-title: var(--font-family-general);
+
+    --font-weight-section-title: 200;
+    --font-weight-section-subtitle: 600;
+    --font-weight-general: 400;
+
+    --line-height-text: 1.5;
+    --line-height-title: 1.25;
+
+    /* colors */
+    --page-background: #fafafa;
+    --card-background: #ffffff;
+    --card-shadow: rgba(131, 166, 210, 0.5);
+
+    --text-color: #4c4e61;
+
+    --blue-accent: #549ef2;
+    --red-accent: #ea5353;
+    --cyan-accent: #45d3d3;
+    --orange-accent: #fcaf4a;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size-base);
+    font-family: var(--font-family-general);
+    font-weight: var(--font-weight-general);
+    line-height: var(--line-height-text);
+    color: var(--text-color);
+    background-color: var(--page-background);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* reset styles */
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+/* main */
+main {
+    flex-grow: 1;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 0 7vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* features-section */
+.section {}
+
+.features {
+    margin-top: 3.75rem;
+}
+
+.section-title-wrapper {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-title);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section-title {
+    font-weight: var(--font-weight-section-title);
+    font-size: inherit;
+    margin-bottom: 0.25rem;
+}
+
+.section-subtitle {
+    font-weight: var(--font-weight-section-subtitle);
+}
+
+.section-description {
+    max-width: 32rem;
+    text-align: center;
+    margin-bottom: 3.75rem;
+
+}
+
+
+
+.feature-card-list {
+    display: grid;
+    grid-template-columns: minmax(260px,
+            400px);
+    gap: 1.875rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-card-link {
+    width: 100%;
+}
+
+
+.card {
+    position: relative;
+    padding: 1.875rem;
+    padding-bottom: 2.8125rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 15.625rem;
+
+    background-color: var(--card-background);
+
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px -10px var(--card-shadow);
+
+
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+}
+
+
+.supervisor::before {
+    background-color: var(--cyan-accent);
+}
+
+.card-title {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-title);
+    margin-bottom: 0.8125rem;
+}
+
+.card-icon {
+    order: 1;
+    align-self: flex-end;
+    margin-right: -5px;
+}
+
+.card-desc {
+    flex: 1;
+    font-size: var(--font-size-sm);
+}
+
+.card-desc__para+.card-desc__para {
+    margin-top: 0.5em;
+}
+
+.team-builder::before {
+    background-color: var(--red-accent);
+}
+
+.karma::before {
+    background-color: var(--orange-accent);
+}
+
+.calculator::before {
+    background-color: var(--blue-accent);
+}
+
+footer {
+    margin-top: 1rem;
+    padding: 1rem 0;
+}
+
+footer .container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.25em;
+    flex-wrap: wrap;
+}
+
+.attribution {
+    font-size: 0.6875rem;
+    text-align: center;
+}
+
+.attribution a {
+    color: #3e52a3;
+}
+
+@media (min-width: 1100px) {
+
+    :root {
+        --font-size-xl: 2.25rem;
+    }
+
+    .section-description {
+        margin-bottom: 4.5rem;
+    }
+
+    .feature-card-list {
+        grid-template-columns: repeat(3, clamp(320px, 23.5vw, 400px));
+        /* grid-auto-flow: dense; */
+        /* grid-template-areas: "supervisor team builder  karma"
+            "supervisor calculator  karma"; */
+    }
+
+    .feature-card-list-item:has(.supervisor) {
+        grid-row: span 2;
+    }
+
+    .feature-card-list-item:has(.karma) {
+        grid-column: 2;
+    }
+
+    .feature-card-list-item:has(.calculator) {
+        grid-column: 3;
+        grid-row: 1 / 3;
+    }
+
+}
